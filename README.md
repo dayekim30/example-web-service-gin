@@ -31,7 +31,7 @@
 **DELTE**
   --> curl -X DELETE -i http://localhost:8080/members/4
   
-      ../members/id <- put the id you want to delete
+  ../members/id <- put the id you want to delete
       
       
       
