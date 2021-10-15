@@ -1,7 +1,7 @@
 # example-web-service-gin
 
 ## HOW TO INSTALL
-**Download the zipfile** \n
+**Download the zipfile** 
 
 **run .exe file**
 
