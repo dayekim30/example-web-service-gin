@@ -2,6 +2,7 @@
 
 ## HOW TO INSTALL
 -- Download the zipfile
+
 -- run .exe file
 
 ## HOW TO USE
@@ -11,6 +12,8 @@
 
 -- **GET - view single member** 
   --> curl http://localhost:8080/members/2
+  
+  
   ../members/id <- put the id to see
 
 -- **POST**
@@ -18,9 +21,12 @@
   
 -- **PUT**
   --> curl -X PUT -i http://localhost:8080/members/6/Chennai+Super+Kings
+  
+  
   ../members/id <- put the id to be edited  
   ../members/id/team -<put the team name (use + for whitespace)
   
 --**DELTE**
   --> curl -X DELETE -i http://localhost:8080/members/4
+  
       ../members/id <- put the id you want to delete
