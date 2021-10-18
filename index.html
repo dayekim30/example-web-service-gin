@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REST Client</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+	  border: 2px solid black;
+	  padding: 20px;
+	  padding-bottom: 30px;
+    }
+    label,
+    input[type="submit"] {
+      margin-top: 20px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Simple POST Form</h1>
+      </h1>
+      <form>
+        <label>Name:</label>
+        <input id="name" type="text" />
+        <label>Cricket Team:</label>
+        <input id="team" type="text" />
+        <input type="submit" value="Add"/>
+      </form>
+      <div class="result">Click Add!</div>
+    </div>
+	<div class="container">
+      <h1>Simple GET Form</h1>
+      </h1>
+      <form>
+        <label>Name:</label>
+        <input id="name" type="text" />
+        <input type="submit" value="Get"/>
+      </form>
+      <div class="result">Click Get!</div>
+    </div>
+	<div class="container">
+      <h1>Simple PUT Form</h1>
+      </h1>
+      <form>
+        <label>Name:</label>
+        <input id="name" type="text" />
+        <label>Cricket Team:</label>
+        <input id="team" type="text" />
+        <input type="submit" value="Put"/>
+      </form>
+      <div class="result">Click Put!</div>
+    </div>
+	<div class="container">
+      <h1>Simple DELETE Form</h1>
+      </h1>
+      <form>
+        <label>Name:</label>
+        <input id="name" type="text" />
+        <input type="submit" value="Delete"/>
+      </form>
+      <div class="result">Click Delete!</div>
+    </div>
+    <script>
+      document.addEventListener("submit", sendData);
+      function sendData(e) {
+        e.preventDefault();
+        const a = document.querySelector("#name").value;
+        const b = document.querySelector("#team").value;
+
+        fetch("/add", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            a: a,
+            b: b
+          })
+        })
+          .then(res => res.json())
+          .then(data => {
+            const { result } = data;
+            document.querySelector(
+              ".result"
+            ).innerText = `The sum is: ${result}`;
+          })
+          .catch(err => console.log(err));
+      }
+    </script>
+  </body>
+</html>
